@@ -18,3 +18,27 @@ function drawSnake() {
         ctx.fillRect(part.x, part.y, gridSize, gridSize)
     });
 }
+
+
+function drawFood() {
+    ctx.fillStyle = 'red';
+    ctx.fillRect(food.x, food.y, gridSize, gridSize);
+}
+
+
+function moveSnake() {
+    const head = {x: snake[0].x + direction.x * gridSize, y: snake[0].y + direction.y * gridSize};
+    snake.unshift(head);
+
+    if (head.x === food.x && head.y === food.y){
+        placeFood()
+    }  else {
+        snake.pop ();
+    }
+
+
+    if (head.x < 0 || head.y <0 || head.x >= canvasSize || head.y >= canvasSize || isSnakeCollision()) {
+        clearInterval(gameInterval);
+        alert('Morreu kkkk');
+    }
+}
