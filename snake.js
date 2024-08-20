@@ -42,3 +42,13 @@ function moveSnake() {
         alert('Morreu kkkk');
     }
 }
+
+function isSnakeCollision() {
+    const head = snake[0];
+    for (let i = 1; i < snake.length; i++) {
+        if (snake[i].x === head.x && snake[i].y ===head.y) {
+            return true;
+        }
+    }
+    return false;
+}
