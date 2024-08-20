@@ -10,3 +10,11 @@ let direction = { x: 1, y: 0 };
 let food = { x: gridSize * 10, y: gridSize * 10};
 
 let gameInterval;
+
+
+function drawSnake() {
+    ctx.fillStyle = 'lime';
+    snake.forEach(part => {
+        ctx.fillRect(part.x, part.y, gridSize, gridSize)
+    });
+}
